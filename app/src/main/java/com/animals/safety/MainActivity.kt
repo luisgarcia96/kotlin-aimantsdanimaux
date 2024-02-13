@@ -56,7 +56,7 @@ fun AimantsDanimauxNavHost(navHostController: NavHostController) {
       arguments = Screen.AnimalDetails.navArguments
     ) {
       AnimalDetailsScreen(
-        animal = AnimalData.findAnimalById(it.arguments?.getString("animalId") ?: "") ?: throw NoSuchElementException("The animal to display cannot be found "),
+        animal = AnimalData.findAnimalById(it.arguments?.getString("animalId") ?: ""),
         onBackClick = { navHostController.navigateUp() }
       )
     }

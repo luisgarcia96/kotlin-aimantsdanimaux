@@ -45,7 +45,7 @@ import java.util.UUID
 @Composable
 fun AnimalDetailsScreen(
   modifier: Modifier = Modifier,
-  animal: Animal,
+  animal: Animal?,
   onBackClick: () -> Unit,
 ) {
   Scaffold(
@@ -101,10 +101,12 @@ fun AnimalDetailsScreen(
       }
     }
   ) { contentPadding ->
-    AnimalDetails(
-      modifier = modifier.padding(contentPadding),
-      animal = animal,
-    )
+    animal?.let {
+      AnimalDetails(
+        modifier = modifier.padding(contentPadding),
+        animal = it,
+      )
+    }
   }
 }
 
