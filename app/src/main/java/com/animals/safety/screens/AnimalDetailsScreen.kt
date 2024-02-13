@@ -2,7 +2,6 @@ package com.animals.safety.screens
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,7 +14,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExtendedFloatingActionButton
+import androidx.compose.material3.FabPosition
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -61,9 +64,42 @@ fun AnimalDetailsScreen(
               contentDescription = "Go back"
             )
           }
-        }
+        },
       )
     },
+    floatingActionButtonPosition = FabPosition.Center,
+    floatingActionButton = {
+      Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceEvenly
+      ) {
+        ExtendedFloatingActionButton(
+          onClick = {
+            //TODO
+          },
+          icon = { Icon(Icons.Filled.Edit, "Edit") },
+          text = { Text(text = stringResource(id = R.string.description_button_edit)) },
+        )
+        ExtendedFloatingActionButton(
+          onClick = {
+            //TODO
+          },
+          contentColor = Color.White,
+          containerColor = Color.Red,
+          icon = {
+            Icon(
+              imageVector = Icons.Filled.Close,
+              contentDescription = "Delete"
+            )
+         },
+          text = {
+            Text(
+              text = stringResource(id = R.string.description_button_delete),
+            )
+           },
+        )
+      }
+    }
   ) { contentPadding ->
     AnimalDetails(
       modifier = modifier.padding(contentPadding),

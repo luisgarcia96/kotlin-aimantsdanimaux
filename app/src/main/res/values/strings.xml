@@ -9,6 +9,8 @@
   <string name="action_save">Save</string>
 
   <string name="description_button_add">Add</string>
+  <string name="description_button_delete">Delete</string>
+  <string name="description_button_edit">Edit</string>
 
   <string name="information">%1$s, %2$d years old! Its weight is %3$s kilograms and its size is %4$s centimeters.</string>
 

@@ -9,6 +9,8 @@
   <string name="action_save">Sauvegarder</string>
 
   <string name="description_button_add">Ajouter</string>
+  <string name="description_button_delete">Supprimer</string>
+  <string name="description_button_edit">Modifier</string>
 
   <string name="information">%1$s de %2$d ans ! Son poids est de %3$s Kg et il mesure %4$s cm.</string>
 
