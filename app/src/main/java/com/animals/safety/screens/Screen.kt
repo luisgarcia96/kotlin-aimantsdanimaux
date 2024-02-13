@@ -19,5 +19,13 @@ sealed class Screen(
     fun createRoute(animalId: String) = "animalDetails/$animalId"
   }
 
-  data object CreateAnimal : Screen("createAnimal")
+  data object CreateAnimal : Screen(
+    route = "createOrEditAnimal/{animalId}",
+    navArguments = listOf(navArgument("animalId") {
+      type = NavType.StringType
+      nullable = true
+    })
+  ) {
+    fun createRoute(animalId: String?) = "animalDetails/$animalId"
+  }
 }

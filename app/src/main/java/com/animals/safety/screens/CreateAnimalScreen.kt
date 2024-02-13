@@ -48,12 +48,14 @@ import java.util.UUID
 @Composable
 fun CreateAnimalScreen(
   modifier: Modifier = Modifier,
+  animal: Animal?,
   onBackClick: () -> Unit,
   onSaveClick:() -> Unit
 ) {
   val scope = rememberCoroutineScope()
   val snackbarHostState = remember { SnackbarHostState() }
 
+  //TODO: à compléter
   val name = remember { mutableStateOf("") }
   val breed = remember { mutableStateOf(Breed.entries[0]) }
   val age = remember { mutableStateOf("") }

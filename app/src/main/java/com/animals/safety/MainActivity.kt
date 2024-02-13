@@ -62,6 +62,7 @@ fun AimantsDanimauxNavHost(navHostController: NavHostController) {
     }
     composable(route = Screen.CreateAnimal.route) {
       CreateAnimalScreen(
+        animal = AnimalData.findAnimalById(it.arguments?.getString("animalId") ?: ""),
         onBackClick = { navHostController.navigateUp() },
         onSaveClick = { navHostController.navigateUp() }
       )
