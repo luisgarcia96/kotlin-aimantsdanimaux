@@ -88,7 +88,7 @@ fun CreateAnimalScreen(
     floatingActionButton = {
       ExtendedFloatingActionButton(
         onClick = {
-          if (verifyAndCreateAnimal(name.value, breed.value, age.value, weight.value, height.value, snackbarHostState, scope)) {
+          if (verifyAndCreateAnimal(animal, name.value, breed.value, age.value, weight.value, height.value, snackbarHostState, scope)) {
             onSaveClick()
           }
         }
@@ -111,6 +111,7 @@ fun CreateAnimalScreen(
 }
 
 fun verifyAndCreateAnimal(
+  animal: Animal?,
   name: String,
   breed: Breed,
   age: String,
@@ -161,9 +162,13 @@ fun verifyAndCreateAnimal(
     return false;
   }
 
+  animal?.let {
+    AnimalData.animals.remove(it)
+  }
+
   AnimalData.animals.add(
     Animal(
-      UUID.randomUUID(),
+      animal?.id ?: UUID.randomUUID(),
       name,
       breed,
       animalAge,
