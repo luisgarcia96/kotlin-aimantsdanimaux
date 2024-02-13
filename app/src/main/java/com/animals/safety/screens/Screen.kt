@@ -26,6 +26,6 @@ sealed class Screen(
       nullable = true
     })
   ) {
-    fun createRoute(animalId: String?) = "animalDetails/$animalId"
+    fun createRoute(animalId: String?) = "createOrEditAnimal/$animalId"
   }
 }
