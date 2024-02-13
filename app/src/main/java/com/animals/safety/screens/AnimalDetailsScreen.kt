@@ -75,14 +75,14 @@ fun AnimalDetailsScreen(
       ) {
         ExtendedFloatingActionButton(
           onClick = {
-            //TODO
+            //TODO: à compléter
           },
           icon = { Icon(Icons.Filled.Edit, "Edit") },
           text = { Text(text = stringResource(id = R.string.description_button_edit)) },
         )
         ExtendedFloatingActionButton(
           onClick = {
-            //TODO
+            //TODO: à compléter
           },
           contentColor = Color.White,
           containerColor = Color.Red,
