@@ -37,7 +37,6 @@ android {
     kotlinCompilerExtensionVersion = "1.5.9"
   }
   buildFeatures {
-    viewBinding = true
     compose = true
   }
 }
