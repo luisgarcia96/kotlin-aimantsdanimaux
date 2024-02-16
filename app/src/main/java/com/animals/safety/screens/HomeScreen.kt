@@ -124,7 +124,6 @@ private fun HomeCell(
     ) {
       Text(
         text = animal.name,
-        color = MaterialTheme.colorScheme.onSurface,
         style = MaterialTheme.typography.titleMedium
       )
       Text(
@@ -135,7 +134,6 @@ private fun HomeCell(
           df.format(animal.weight),
           df.format(animal.height)
         ),
-        color = MaterialTheme.colorScheme.onSurface,
         style = MaterialTheme.typography.bodyMedium
       )
     }
