@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Close
@@ -61,7 +63,7 @@ fun AnimalDetailsScreen(
           }) {
             Icon(
               imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-              contentDescription = "Go back"
+              contentDescription = stringResource(id = R.string.contentDescription_go_back)
             )
           }
         },
@@ -77,7 +79,7 @@ fun AnimalDetailsScreen(
           onClick = {
             //TODO: à compléter
           },
-          icon = { Icon(Icons.Filled.Edit, "Edit") },
+          icon = { Icon(Icons.Filled.Edit, stringResource(id = R.string.description_button_edit)) },
           text = { Text(text = stringResource(id = R.string.description_button_edit)) },
         )
         ExtendedFloatingActionButton(
@@ -89,7 +91,7 @@ fun AnimalDetailsScreen(
           icon = {
             Icon(
               imageVector = Icons.Filled.Close,
-              contentDescription = "Delete"
+              contentDescription = stringResource(id = R.string.description_button_delete)
             )
          },
           text = {
@@ -113,11 +115,15 @@ fun AnimalDetailsScreen(
 @Composable
 private fun AnimalDetails(
   modifier: Modifier = Modifier,
-  animal: Animal,
+  animal: Animal
 )
 {
+  val scrollState = rememberScrollState()
+
   Column(
-    modifier = modifier.fillMaxSize(),
+    modifier = modifier
+      .fillMaxSize()
+      .verticalScroll(scrollState),
     horizontalAlignment = Alignment.CenterHorizontally
   ) {
     Box(modifier = Modifier.aspectRatio(3f / 2f)) {
@@ -125,7 +131,7 @@ private fun AnimalDetails(
         modifier = Modifier.fillMaxWidth(),
         contentScale = ContentScale.Crop,
         painter = painterResource(animal.breed.cover),
-        contentDescription = "cover"
+        contentDescription = stringResource(id = R.string.contentDescription_avatar)
       )
       Text(
         modifier = Modifier

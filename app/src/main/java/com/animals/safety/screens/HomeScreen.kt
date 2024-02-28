@@ -2,10 +2,8 @@ package com.animals.safety.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -65,7 +63,7 @@ fun HomeScreen(
       ) {
         Icon(
           imageVector = Icons.Filled.Add,
-          contentDescription = "Add an animal"
+          contentDescription = stringResource(id = R.string.contentDescription_add_animal)
         )
       }
     }
@@ -117,7 +115,7 @@ private fun HomeCell(
         .width(54.dp)
         .height(54.dp),
       painter = painterResource(animal.breed.cover),
-      contentDescription = "cover"
+      contentDescription = stringResource(id = R.string.contentDescription_avatar)
     )
     Column(
       modifier = Modifier.padding(start = 16.dp),

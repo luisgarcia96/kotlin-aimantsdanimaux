@@ -28,4 +28,13 @@
   <string name="value_age">%1$s ans</string>
   <string name="value_weight">%1$s (Kg)</string>
   <string name="value_height">%1$s (cm)</string>
+
+  <string name="issue_name_empty">Le nom ne doit pas être vide</string>
+  <string name="issue_invalid_age">L\'âge n\'est pas valide</string>
+  <string name="issue_invalid_weight">Le poids n\'est pas valide</string>
+  <string name="issue_invalid_height">La taille n\'est pas valide</string>
+
+  <string name="contentDescription_go_back">Retour</string>
+  <string name="contentDescription_avatar">Avatar</string>
+  <string name="contentDescription_add_animal">Ajouter un animal</string>
 </resources>
