@@ -56,7 +56,7 @@ fun CreateAnimalScreen(
 ) {
   val context = LocalContext.current
   val scope = rememberCoroutineScope()
-  val snackbarHostState = rememberSaveable { SnackbarHostState() }
+  val snackbarHostState = remember { SnackbarHostState() }
 
   //TODO: à compléter
   val name = rememberSaveable { mutableStateOf("") }
