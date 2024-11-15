@@ -41,13 +41,11 @@ fun AimantsDanimauxNavHost(navHostController: NavHostController) {
       HomeScreen(
         onAnimalClick = {
           navHostController.navigate(
-            Screen.AnimalDetails.createRoute(
-              animalId = it.id.toString()
-            )
+            Screen.AnimalDetails.createRoute(animalId = it.id.toString())
           )
         },
         onFABClick = {
-          navHostController.navigate(Screen.CreateAnimal.route)
+          navHostController.navigate(Screen.CreateAnimal.createRoute(null))
         }
       )
     }
@@ -57,15 +55,23 @@ fun AimantsDanimauxNavHost(navHostController: NavHostController) {
     ) {
       AnimalDetailsScreen(
         animal = AnimalData.findAnimalById(it.arguments?.getString("animalId") ?: ""),
-        onBackClick = { navHostController.navigateUp() }
+        onBackClick = { navHostController.navigateUp() },
+        navController = navHostController
       )
     }
-    composable(route = Screen.CreateAnimal.route) {
+    composable(
+      route = Screen.CreateAnimal.route,
+      arguments = Screen.CreateAnimal.navArguments
+    ) { backStackEntry ->
+      val animalId = backStackEntry.arguments?.getString("animalId")
+      val animal = animalId?.let { AnimalData.findAnimalById(it) }
+
       CreateAnimalScreen(
-        animal = AnimalData.findAnimalById(it.arguments?.getString("animalId") ?: ""),
+        animal = animal,
         onBackClick = { navHostController.navigateUp() },
         onSaveClick = { navHostController.navigateUp() }
       )
     }
   }
 }
+

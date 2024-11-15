@@ -37,8 +37,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.animals.safety.R
 import com.animals.safety.data.Animal
+import com.animals.safety.data.AnimalData
 import com.animals.safety.data.Breed
 import com.animals.safety.ui.theme.AimantsDanimauxTheme
 import java.util.UUID
@@ -49,6 +51,7 @@ fun AnimalDetailsScreen(
   modifier: Modifier = Modifier,
   animal: Animal?,
   onBackClick: () -> Unit,
+  navController: NavHostController,
 ) {
   Scaffold(
     modifier = modifier,
@@ -77,14 +80,15 @@ fun AnimalDetailsScreen(
       ) {
         ExtendedFloatingActionButton(
           onClick = {
-            //TODO: à compléter
+            navController.navigate(Screen.CreateAnimal.createRoute(animal?.id?.toString()))
           },
           icon = { Icon(Icons.Filled.Edit, stringResource(id = R.string.description_button_edit)) },
           text = { Text(text = stringResource(id = R.string.description_button_edit)) },
         )
         ExtendedFloatingActionButton(
           onClick = {
-            //TODO: à compléter
+            AnimalData.animals.remove(animal)
+            onBackClick()
           },
           contentColor = Color.White,
           containerColor = Color.Red,
